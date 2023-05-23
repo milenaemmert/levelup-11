@@ -1,8 +1,7 @@
 import React from 'react';
 import Top from '../components/Top';
-import Tasks from '../components/Tasks';
+import TaskList from '../components/TaskList';
 
 export default function Home() {
-  return <Tasks top={Top} />
-
+  return <TaskList top={Top} />;
 }
