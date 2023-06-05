@@ -1,26 +1,21 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
-import Home from './src/screens';
+import {SafeAreaView, ScrollView, StatusBar, StyleSheet} from 'react-native';
+import AppRoutes from './src/routes/AppRoutes';
 
 function App() {
   return (
     <SafeAreaView style={styles.screen}>
-      <ScrollView>
-        <Home />
-      </ScrollView>
+      {/* <StatusBar /> */}
+      <AppRoutes />
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#EBFFEE'
-  }
-})
+    backgroundColor: '#EBFFEE',
+  },
+});
 
-export default App
+export default App;

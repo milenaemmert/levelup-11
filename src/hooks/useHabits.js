@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { loadTasks } from '../services/loadData';
+import { loadHabits } from '../services/loadData';
 
 export default function useTasks() {
   const [title, setTitle] = useState('');
@@ -7,12 +7,14 @@ export default function useTasks() {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    const loaded = loadTasks();
+    const loaded = loadHabits();
     setTitle(loaded.title);
     setImageTitle(loaded.image);
-    setList(loaded.taskslist);
+    setList(loaded.habitsList);
     
   }, []);
 
   return [ title, imageTitle, list]
 }
+
+  

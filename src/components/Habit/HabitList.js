@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import Title from './Title';
-import TaskItem from './TaskItem';
+import Title from '../Title';
+import HabitItem from './HabitItem';
 import {FlatList, Image, StyleSheet, View, Text} from 'react-native';
-import useTasks from '../hooks/useTasks';
+import useHabits from '../../hooks/useHabits';
 
-export default function TaskList({top: Top}) {
-  const [title, imageTitle, list] = useTasks();
+export default function HabitList({top: Top}) {
+  const [title, imageTitle, list] = useHabits();
   const [counter, setCounter] = useState(0);
 
   const titleList = () => {
@@ -18,9 +18,6 @@ export default function TaskList({top: Top}) {
             <Image source={imageTitle} style={styles.imageTitleList} />
             <Title>{title}</Title>
           </View>
-          <Text style={styles.counter}>
-            {counter} / {list.length}
-          </Text>
         </View>
       </>
     );
@@ -30,8 +27,8 @@ export default function TaskList({top: Top}) {
     <>
       <FlatList
         data={list}
-        renderItem={({item}) => <TaskItem {...item} setCounter={setCounter} />}
-        keyExtractor={({task}) => task}
+        renderItem={({item}) => <HabitItem {...item} setCounter={setCounter} />}
+        keyExtractor={({habit}) => habit}
         ListHeaderComponent={titleList}
       />
     </>
@@ -48,7 +45,6 @@ const styles = StyleSheet.create({
   containerTitleList: {
     flexDirection: 'row',
     alignItems: 'center',
-    
   },
   imageTitleList: {
     marginRight: 12,
@@ -60,6 +56,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 18
-  }
+    fontSize: 18,
+  },
 });
