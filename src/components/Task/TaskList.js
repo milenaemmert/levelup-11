@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import Title from './Title';
+import Title from '../Title';
 import TaskItem from './TaskItem';
 import {FlatList, Image, StyleSheet, View, Text} from 'react-native';
-import useTasks from '../hooks/useTasks';
+import useTasks from '../../hooks/useTasks';
 
 export default function TaskList({top: Top}) {
   const [title, imageTitle, list] = useTasks();
